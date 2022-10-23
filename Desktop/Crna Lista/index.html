@@ -1,0 +1,290 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Crna Lista </title>
+
+    <!-- NAPRAVLJENI CSS -->
+    <link href="css/CrnaLista.css" rel="stylesheet">
+    <!-- ICON -->
+    <link rel="icon" href="img/crnaLista_icn3.ico">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- FONT-FAMILY: ROBOTO SLAB & BEBAS NEUE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab&display=swap" rel="stylesheet"> 
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="loading">    
+    <!-- LOADER DIV -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section"></div>
+        <div class="loader-section"></div>
+    </div>
+
+    <!-- ARROW TO GO UP -->
+    <button id="scrollTop"><i class="fas fa-arrow-up small"></i></button>
+
+    <header>
+        <nav class="blue-grey darken-4">
+            <div class="nav-wrapper container">
+                <a href="#!" class="left brand-logo"><img src="img/crnaLista_icn3.png" class="left logo" alt="Ikonica Crne Liste">CrnaLista</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="index.html"><i class="material-icons">home</i></a></li>
+                    <li><a href="#modal" class="btn waves-effect waves-light red darken-2 modal-trigger" id="button">DIJELI SVOJU PRIČU</a></li>
+                </ul>
+                    
+                <ul id="nav-mobile" class="sidenav blue-grey darken-4">
+                    <li><a href="index.html" class="white-text">NASLOVNA</a></li>
+                    <li><a href="#modal" class="btn waves-effect waves-light red darken-2 modal-trigger">DIJELI SVOJU PRIČU</a></li>
+                </ul>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+
+        <!-- Modal Structure -->
+        <div id="modal" class="modal modal-fixed-footer modal-fit-content">
+            <div class="modal-content">
+                <div class="col s12 m12 l12">
+                    <h5>DIJELI SVOJU PRIČU</h5>
+                </div>
+                <form id="modalForm" action="add-post.php" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col s12 m12 l6">
+                            <label class="black-text">IME*</label>
+                            <input type="text" id="inputIme" class="inputModal" placeholder="Unesite svoje ime"/>
+                            <span class="validationAlert"><i class="fa-solid fa-circle-exclamation"></i>Unesite svoje ime</span>
+                        </div>
+                        <div class="col s12 m12 l6">
+                            <label class="black-text">PREZIME*</label>
+                            <input type="text" id="inputPrez" class="inputModal" placeholder="Unesite svoje prezime"/>
+                            <span class="validationAlert"><i class="fa-solid fa-circle-exclamation"></i>Unesite svoje prezime</span>
+                        </div>
+                        <div class="col s12 m12 l12">
+                            <h6><b>INFORMACIJE O PREVARI</b></h6>
+                            <label class="black-text">TIP PREVARE*</label>
+                            <select class="browser-default" id="typeScamSelected">
+                                <option disabled selected>Izaberite vrstu prevare</option>
+                                <option>Lutrijska prevara</option>
+                                <option>Kreditna prevara</option>
+                                <option>Investicijska prevara</option>
+                                <option>Krađa identiteta</option>
+                                <option>Prevara kupnje putem interneta</option>
+                                <option>Romantična prevara</option>
+                            </select>
+                            <span class="validationAlertSelect"><i class="fa-solid fa-circle-exclamation"></i>Unesite vrstu prevare</span>
+                        </div>
+                        <div class="col s12 m12 l12">
+                            <label class="black-text">NASLOV PREVARE*</label>
+                            <input type="text" id="inputTitle" class="inputModal">
+                            <span class="validationAlert"><i class="fa-solid fa-circle-exclamation"></i>Unesite naslov prevare</span>
+                        </div>
+                        <div class="col s12 m12 l12">
+                            <label class="black-text">OPIŠITE PREVARU:*</label>
+                            <textarea id="inputDesc" class="inputModal"></textarea>
+                            <span class="validationAlert"><i class="fa-solid fa-circle-exclamation"></i>Unesite opis prevare</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-red btn-flat myBtn" style="--btnColor: #fc7066;">Zatvori</a>
+                <a href="#!" class="waves-effect waves-green btn-flat myBtn" id="objavi" style="--btnColor: rgb(125, 247, 125);">Objavi priču</a>
+            </div>
+        </div>      
+    </header>
+
+    <main>
+        <div class="parallax-container" style="height: 650px;">
+            <div class="parallax">
+                <img src="img/homepageBanner1.png" alt="banner">
+            </div>
+            <div class="parallaxCaption">
+                <div class="card transparent z-depth-5">
+                    <h4>CrnaLista</h4>
+                    <p>Stranica CrnaLista vam pomaže u prepoznavanju prevara i u širenjem svijesti.</p>
+                </div>
+            </div>        
+        </div>
+
+        <div class="newestStories">
+            <div class="container">
+                <div class="section">
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <h3 class="center-align blue-grey-text text-darken-4 title">Najnovije priče</h3>
+                        </div>
+                        <div class="filterTab">
+                            <div class="col s12 m12 l12">
+                                <p class="grey-text">Filtrirati po:</p>
+                            </div>
+                            <div class="col s12 m12 l12">
+                                <select class="browser-default" id="typeScamFilter" onchange="if(this.selectedIndex) scamFilter();">
+                                    <option disabled selected>Izaberite vrstu prevare</option>
+                                    <option>Sve vrste prevare</option>
+                                    <option>Lutrijska prevara</option>
+                                    <option>Kreditna prevara</option>
+                                    <option>Investicijska prevara</option>
+                                    <option>Krađa identiteta</option>
+                                    <option>Prevara kupnje putem interneta</option>
+                                    <option>Romantična prevara</option>
+                                </select>   
+                            </div>
+                        </div>
+                        <div id="stories">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="img/homepageBanner2.jpg" alt="banner2"/>
+            </div>
+            <div class="parallaxCaption">
+                <div class="card transparent z-depth-5 center-align">
+                    <h4>Jeste li naišli na prevaru?</h4>
+                    <h5> Podijelite svoju priču. Pomozite u stvaranju svijesti. </h5>
+                    <div>
+                        <a href="#modal" class="btn waves-effect waves-light red darken-2 center-align modal-trigger">DIJELI SVOJU PRIČU</a>
+                    </div>
+                </div>
+            </div>  
+        </div>
+
+        <!-- TABOVI ZA VRSTE PREVARE -->
+        <div class="scamsTabs">
+            <div class="container">
+                <div class="section">
+                    <ul id="tabs-swipe-demo" class="tabs">
+                        <li class="tab col s3"><a href="#phishingTab"><i class="fa-solid fa fa-user-secret fa-2xl"></i></a></li>
+                        <li class="tab col s3"><a href="#investmentTab"><i class="fa fa-solid fa-coins fa-2xl"></i></a></li>
+                        <li class="tab col s3"><a href="#romanceTab"><i class="fa fa-solid fa-heart fa-2xl"></i></a></li>
+                        <li class="tab col s3"><a href="#lotteryTab"><i class="fa fa-solid fa-dollar-sign fa-2xl"></i></a></li>
+                        <li class="tab col s3"><a href="#loanTab"><i class="fa fa-solid fa-money-bill-transfer fa-2xl"></i></a></li>
+                        <li class="tab col s3"><a href="#onlineTab"><i class="fa-solid fa-basket-shopping fa-2xl"></i></a></li>
+                    </ul>
+                    <div id="phishingTab" class="col s12 m12 l12 scam">
+                        <div class="row">
+                            <div class="col s12 m6 l7">
+                                <h5>Što je Krađa identiteta?</h5>
+                                <p> Krađa identiteta je prevara gdje kriminal metu ili mete kontaktira e-poštom, telefonom ili tekstualnom porukom od strane nekoga tko se predstavlja kao legitimna institucija kako bi namamio pojedince da daju osjetljice podatke kao što su osobni podaci, podaci o bankovnim i kreditnim karticama te lozinke.</p>
+                                <p>Podaci se tada koriste za pristup važnim računima i mogu dovesti do krađe identiteta i financijskog gubitka.</p>
+                            </div>
+                            <div class="col s12 m6 l5">
+                                <img src="img/identityScam.jpg" alt="Slika krađa identiteta">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="investmentTab" class="col s12 m12 l12">
+                        <div class="row">
+                            <div class="col s12 m6 l7">
+                                <h5>Što je Investicijska prevara?</h5>
+                                <p>Investicijske prevare uključuju obećanja velikih isplata, brzog novca ili zajamčenog povrata. Uvijek budite sumnjičavi prema bilo kakvim prilikama za ulaganje koje obećavaju visok povrat uz mali ili nikakav rizik – ako se čini predobro da bi bilo istinito, vjerojatno jest – i vrlo je vjerojatno da će biti prevara.</p>
+                            </div>
+                            <div class="col s12 m6 l5">
+                                <img src="img/investmentScam.jpg" alt="Slika investicijske prevare">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="romanceTab" class="col s12 m12 l12">
+                        <div class="row">
+                            <div class="col s12 m6 l7">
+                                <h5>Što je Romantična prevara?</h5>
+                                <p>Romantična prevara je kada vas novo ljubavno zanimanje prevari da se zaljubite u njih kada oni stvarno žele samo vaš novac. Romantične prevare počinju na nekoliko različitih načina, obično na mreži. Prevaranti također mogu potrošiti vrijeme da vas upoznaju i razviju povjerenje prije nego što zatraže zajam ili pristup vašim financijama.</p>
+                            </div>
+                            <div class="col s12 m6 l5">
+                                <img src="img/loveScam.jpg" alt="Slika romantične prevare">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="lotteryTab" class="col s12 m12 l12">
+                        <div class="row">
+                            <div class="col s12 m6 l7">
+                                <h5>Što je Lutrijska prevara?</h5>
+                                <p>U lutrijskoj prevari, prevaranti mogu nazvati ili poslati e-poštu kako bi vam rekli da ste osvojili nagradu na lutriji ili nagradnoj igri, a zatim zamolu da platite unaprijed naknade i poreze. U nekim slučajevima mogu tvrditi da su iz savezne vladine agencije.</p>
+                            </div>
+                            <div class="col s12 m6 l5">
+                                <img src="img/lotteryScam.jpg" alt="Slika lutrijske prevare">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="loanTab" class="col s12 m12 l12">
+                        <div class="row">
+                            <div class="col s12 m6 l7">
+                                <h5>Što je Kreditna prevara?</h5>
+                                <p>Šalju se SMS-ovi ili WhatsApp poruke nudeći zajmove i usluge zajma slučajnim korisnicima. Prevaranti mogu tvrditi da su zaposlenici licenciranog zajmodavca. Zainteresirane strane se upućuju da prebace novac kao depozit prije isplate zajma. Nakon prijenosa, žrtve otkrivaju da prevaranti više nisu dostupni. Kao dio ovih prevara, prevaranti mogu tražiti osobne podatke kao što su kontaktni brojevi, podaci o brojevima bankovnih računa. Kada se predaju, informacije se koriste za uznemiravanje ili prijetnje žrtvama za plaćanje.</p>
+                            </div>
+                            <div class="col s12 m6 l5">
+                                <img src="img/loanScam.jpg" alt="Slika kreditne prevare">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="onlineTab" class="col s12 m12 l12">
+                        <div class="row">
+                            <div class="col s12 m6 l7">
+                                <h5>Što je Prevara kupnje putem interneta?</h5>
+                                <p>Žrtve ove prevare često dolaze u iskušenje zbog onoga što se čini kao dobar posao za gadget, zabavni park ili ulaznice za koncert koji se prodaju online. Prebacuju plaćanje na "prodavača" koji obećava isporuku artikla. U nekim slučajevima prodavači zahtijevaju daljnje plaćanje carina ili troškova dostave nakon izvršene prve uplate. U konačnici, žrtva nikada ne primi predmet.</p>
+                            </div>
+                            <div class="col s12 m6 l5">
+                                <img src="img/purchaseScam.jpg" alt="Slika prevara kupnje putem interneta">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="page-footer blue-grey darken-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <img src="img/crnaLista_icn3.png" alt="Ikonica Crne Liste" class="left logo">
+                        <h4 class="left white-text">CrnaLista</h4>
+                    </div>
+                    <div class="col s12 m6 offset-l1 l5 icons">
+                        <h6 class="white-text">Pratite nas na:</h6>
+                        <ul>
+                            <li><a href="https://hr-hr.facebook.com" style="--color: #1976d2;" class="waves-effect waves-light"><i class="fa-brands fa-facebook-square"></i></a></li>
+                            <li><a href="https://twitter.com" style="--color: #03a9f4;" class="waves-effect waves-light"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.instagram.com" style="--color: #e91e63;" class="waves-effect waves-purple"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.youtube.com/" style="--color: #f44336;" class="waves-effect waves-red"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 m6 l6">
+                            © 2022 CrnaLista. All rights reserved
+                        </div>
+                        <div class="col s12 m6 offset-l1 l5">
+                            Napravili: Nikolina Vulić i Gabriel Kokan
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/CrnaLista.js"></script>
+</body>
+</html>
